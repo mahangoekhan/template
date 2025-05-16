@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/part-of: html-openshift-app
 spec:
   replicas: 1
-  selector:
+  selector: # zeigt auf pod
     matchLabels:
       app: html-openshift-app
   template:
@@ -16,10 +16,10 @@ spec:
         app: html-openshift-app
     spec:
       containers:
-      - name: html-openshift-app
-        resources: {}
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        image: ghcr.io/ghcr.io/mahangoekhan/html-openshift-app:v1
-        imagePullPolicy: Always
+        - name: html-openshift-app
+          resources: {}
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          image: image-registry.openshift-image-registry.svc:5000/254196-zlic-tgokhan1/html-openshift-app:v1
+          imagePullPolicy: Always

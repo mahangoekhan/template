@@ -7,10 +7,11 @@ metadata:
     app.kubernetes.io/part-of: html-openshift-app
 spec:
   ports:
-    - name: http
+    - name: html-openshift-app
       protocol: TCP
       port: 8080
       targetPort: 8080
   type: ClusterIP
+  sessionAffinity: None
   selector:
     app: html-openshift-app
